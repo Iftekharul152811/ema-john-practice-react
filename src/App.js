@@ -2,10 +2,14 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 import About from './components/About/About';
 import Inventory from './components/Inventory/Inventory';
+import Login from './components/Login/Login';
 import Orders from './components/Orders/Orders';
 import Shop from './components/Shop/Shop';
+import SignUp from './components/SignUp/SignUp';
 import Main from './layout/Main';
+import Shipping from './components/Shipping/Shipping';
 import { productsAndCartLoader } from './loader/ProductsAndCartLoader';
+import PrivateRoute from './routes/PrivateRoute';
 
 
 function App() {
@@ -28,11 +32,23 @@ function App() {
         },
         {
           path: '/inventory',
-          element: <Inventory></Inventory>
+          element: <PrivateRoute><Inventory></Inventory></PrivateRoute>
+        },
+        {
+          path: '/shipping',
+          element: <PrivateRoute><Shipping></Shipping></PrivateRoute>
         },
         {
           path: '/about',
           element: <About></About>
+        },
+        {
+          path: '/login',
+          element: <Login></Login>
+        },
+        {
+          path: '/signup',
+          element: <SignUp></SignUp>
         }
       ]
     }
