@@ -15,7 +15,7 @@ const Orders = () => {
     }
 
     const handleRemoveItem = (id) => {
-        const remaining = cart.filter(product => product.id !== id);
+        const remaining = cart.filter(product => product._id !== id);
         setCart(remaining);
         removeFromDb(id);
         // এখানে বুঝানো হয়েছে যে, আমি যখন ডিলিট এ ক্লিক করবো তখন একটা আইডি জেনারেট হবে, সেই আইডি ফিল্টার করে যদি মিলে যায় তাহলে ওই আইডি এর প্রডাক্ট বাদ এ বাকি সবগুলো দেখাবে। অর্থাৎ, সব প্রডাক্ট এর আইডি ফিল্টার করবো এবং ক্লিক করা আইডি বাদ এ যেগুলো থাকবে সেগুলো সেট করবো 
@@ -25,7 +25,7 @@ const Orders = () => {
             <div className='orders-container'>
                 {
                     cart.map(product => <ReviewItem
-                        key={product.id}
+                        key={product._id}
                         product={product}
                         handleRemoveItem={handleRemoveItem}
                     ></ReviewItem>)

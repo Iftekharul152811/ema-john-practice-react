@@ -13,3 +13,20 @@
 .cart-container {
     background-color: bisque;
 }
+
+
+.pagination {
+    margin: 10px auto;
+}
+
+.pagination button {
+    margin-right: 10px;
+    padding: 8px;
+}
+
+.pagination .selected {
+    background-color: goldenrod;
+    border: gold;
+    font-weight: bold;
+    padding: 10px;
+}
